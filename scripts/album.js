@@ -35,7 +35,7 @@ var albumPicasso = {
       year: '2017',
       albumArtUrl: 'assets/images/album_covers/20.png',
       songs: [
-        { title: 'Testing Skills', duration: '2:25'}
+        { title: 'Testing Skills', duration: '2:25'},
         { title: 'What is this', duration: '1:05'}
   ]
 }
