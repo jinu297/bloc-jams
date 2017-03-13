@@ -215,15 +215,30 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+// this is where assignment 20 begins ************************************
 
+var $playSongFromBar = $('.main-controls .play-pause');
 
 
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-
-
+    
+    // this is also part of assignment 20 **********************************
+    
+    $playSongFromBar.click(function(){
+                            if (currentSoundFile.isPaused){
+                                $(this).html(pauseButtonTemplate);
+                                currentSoundFile.play;
+                            }
+        
+                            if (currentSoundFile.play){
+                                $(this).html(playButtonTemplate);
+                                currentSoundFile.pause;
+                            }
+        
+                           });
 
 });
 
