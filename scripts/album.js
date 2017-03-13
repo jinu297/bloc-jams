@@ -90,17 +90,17 @@ var createSongRow = function(songNumber, songName, songLength) {
 };
 
 
-
+var $albumImage = $('.album-cover-art');
+var $albumTitle = $('.album-view-title');
+var $albumArtist = $('.album-view-artist');
+var $albumReleaseInfo = $('.album-view-release-info');
+var $albumSongList = $('.album-view-song-list');
 
 
 var setCurrentAlbum = function(album) {
 
     currentAlbum = album;
-    var $albumTitle = $('.album-view-title');
-    var $albumArtist = $('.album-view-artist');
-    var $albumReleaseInfo = $('.album-view-release-info');
-    var $albumImage = $('.album-cover-art');
-    var $albumSongList = $('.album-view-song-list');
+
 
     $albumTitle.text(album.title);
     $albumArtist.text(album.artist);
@@ -224,21 +224,21 @@ $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-    
+
     // this is also part of assignment 20 **********************************
-    
+
     $playSongFromBar.click(function(){
-                            if (currentSoundFile.isPaused){
-                                $(this).html(pauseButtonTemplate);
-                                currentSoundFile.play;
-                            }
-        
-                            if (currentSoundFile.play){
-                                $(this).html(playButtonTemplate);
-                                currentSoundFile.pause;
-                            }
-        
-                           });
+        if (currentSoundFile.isPaused){
+            $(this).html(pauseButtonTemplate);
+            currentSoundFile.play;
+        }
+
+        if (currentSoundFile.play){
+            $(this).html(playButtonTemplate);
+            currentSoundFile.pause;
+        }
+
+    });
 
 });
 
@@ -246,7 +246,7 @@ $(document).ready(function() {
 var albums = [albumPicasso, albumMarconi];
 var index = 1;
 
-albumImage.addEventListener("click", function(event){
+$albumImage.click(function(event){
     setCurrentAlbum(albums[index]);                     
     index++;
     if (index == albums.length){
