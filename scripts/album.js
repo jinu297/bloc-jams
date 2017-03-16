@@ -161,6 +161,24 @@ var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
     $seekBar.find('.thumb').css({left: percentageString});
 };
 
+// This is assignment 21 -------------------------------------------
+
+var setCurrentTimeInPlayerBar = function(currentTime){
+    currentTime = $('.current-time');
+    updateSeekBarWhileSongPlays();  
+};
+
+var setTotalTimeInPlayerBar = function(totalTime){
+    totalTime = $('.total-time');
+    updateSeekBarWhileSongPlays();
+};
+
+var filterTimeCode = function(timeInSeconds){
+    timeInSeconds = parseFloat(timeInSeconds);
+};
+
+
+// This is the ene of assignment 21 --------------------------------
 
 var setupSeekBars = function() {
     var $seekBars = $('.player-bar .seek-bar');
