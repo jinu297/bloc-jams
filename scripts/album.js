@@ -3,7 +3,7 @@ var setSong = function(songNumber){
         currentSoundFile.stop();
     }
     currentlyPlayingSongNumber = parseInt(songNumber);
-    currentSongFromAlbum - currentAlbum.songs[songNumber -1];
+    currentSongFromAlbum = currentAlbum.songs[songNumber -1];
     currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
         formats: [ 'mp3' ],
         preload: true
@@ -31,6 +31,9 @@ var createSongRow = function(songNumber, songName, songLength) {
     + '</tr>'
     ;
 
+    
+    
+    
     var $row = $(template);
 
     var clickHandler = function() {
@@ -227,15 +230,18 @@ $(document).ready(function() {
 
     // this is also part of assignment 20 **********************************
 
-    $playSongFromBar.click(function(){
-        if (currentSoundFile.isPaused){
+     $playSongFromBar.click(function(){
+         
+        if (currentSoundFile.isPaused()){
             $(this).html(pauseButtonTemplate);
-            currentSoundFile.play;
-        }
-
-        if (currentSoundFile.play){
+            currentSoundFile.play();
+            getSongNumberCell(currentlyPlayingSongNumber).html(pauseButtonTemplate);
+              
+        } else {
+            
             $(this).html(playButtonTemplate);
-            currentSoundFile.pause;
+            currentSoundFile.pause();
+            getSongNumberCell(currentlyPlayingSongNumber).html(playButtonTemplate);
         }
 
     });
