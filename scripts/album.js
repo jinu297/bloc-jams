@@ -174,8 +174,25 @@ var setTotalTimeInPlayerBar = function(totalTime){
 };
 
 var filterTimeCode = function(timeInSeconds){
-    timeInSeconds = parseFloat(timeInSeconds);
+    var parsedTimeInSeconds = parseFloat(timeInSeconds);
+    
+    var minutes = timeInSeconds / 60;
+    var seconds = timeInSeconds % 60;
+    
+    Math.floor(minutes);
+    Math.floor(seconds);
+    
+    
+    return minutes + ':' + seconds;
 };
+
+filterTimeCode(setCurrentTimeInPlayerBar);
+filterTimeCode(setTotalTimeInPlayerBar);
+
+filterTimeCode(songLength);
+
+
+
 
 
 // This is the ene of assignment 21 --------------------------------
