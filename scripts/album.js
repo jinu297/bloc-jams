@@ -69,12 +69,12 @@ var createSongRow = function(songNumber, songName, songLength) {
                 $('.main-controls .play-pause').html(playerBarPlayButton);
                 currentSoundFile.pause();
             }
-            
+
             var $volumeFill = $('.volume .fill');
             var $volumeThumb = $('.volume .thumb');
             $volumeFill.width(currentVolume + '%');
             $volumeThumb.css({left: currentVolume + '%'});
-            
+
             $(this).html(playButtonTemplate);
             $('.main-controls .play-pause').html(playerBarPlayButton);
             currentlyPlayingSongNumber = null;
@@ -175,14 +175,18 @@ var setTotalTimeInPlayerBar = function(totalTime){
 
 var filterTimeCode = function(timeInSeconds){
     var parsedTimeInSeconds = parseFloat(timeInSeconds);
-    
-    var minutes = timeInSeconds / 60;
-    var seconds = timeInSeconds % 60;
-    
-    Math.floor(minutes);
-    Math.floor(seconds);
-    
-    
+
+    var minutes = parsedTimeInSeconds / 60;
+    var seconds = parsedTimeInSeconds % 60;
+
+    minutes = Math.floor(minutes);
+    seconds = Math.floor(seconds);
+
+    if (seconds < 10){
+        seconds = "0" + seconds;
+    };
+
+
     return minutes + ':' + seconds;
 };
 
